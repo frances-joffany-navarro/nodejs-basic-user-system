@@ -1,0 +1,27 @@
+{
+  "name": "nodejs-basic-user-system",
+  "version": "1.0.0",
+  "description": "",
+  "main": "app.js",
+  "scripts": {
+    "start": "nodemon app.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/frances-joffany-navarro/nodejs-basic-user-system.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/frances-joffany-navarro/nodejs-basic-user-system/issues"
+  },
+  "homepage": "https://github.com/frances-joffany-navarro/nodejs-basic-user-system#readme",
+  "devDependencies": {
+    "nodemon": "^2.0.15"
+  },
+  "dependencies": {
+    "express": "^4.17.2",
+    "morgan": "^1.10.0"
+  }
+}
