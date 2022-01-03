@@ -11,6 +11,10 @@ This is a project is an exercise for Express (Nodejs). The idea of this project 
 
 ## Demo (Coming Soon)
 
+## Screenshoot
+- Sign in (Desktop to Mobile View)
+  ![Mobile](documentation/desktop-to-mobile-v2.png)
+
 ## Language used
 - HTML 5
 - Bootstrap
