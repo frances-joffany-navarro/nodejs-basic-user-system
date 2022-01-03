@@ -1,0 +1,17 @@
+body {
+  background-image: url(./marek-piwnicki-zhtoz3osZVY-unsplash.jpg);
+  background-position: top right;
+}
+
+main {
+  max-width: 400px;
+  margin: auto;
+  background-color: rgba(166, 208, 248, 0.5);
+  padding: 20px;
+  border-radius: 20px;
+  margin-top: 125px;
+}
+
+footer {
+  max-height: 100px;
+}
