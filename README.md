@@ -13,7 +13,7 @@ This is a project is an exercise for Express (Nodejs). The idea of this project 
 
 ## Screenshoot
 - Sign in (Desktop to Mobile View)
-  ![Mobile](documentation/desktop-to-mobile-v2.png)
+  ![Mobile](documentation/desktop-to-mobile.png)
 
 ## Language used
 - HTML 5
