@@ -1,24 +1,38 @@
 const express = require("express")
 const app = express()
 const morgan = require("morgan")
+const connectDB = require('./services/connect')
+require('dotenv').config()
+
+const users = require("./routes/users")
 
 app.use(morgan('tiny'))
-app.use(express.static('./frontend'))
 
+app.use(express.static('./public'))
 app.use(express.urlencoded({ extended: false }))
 app.use(express.json())
 
+app.use('/api/v1/users', users)
 
-app.post('/login', (req, res) => {
-  const { email, password } = req.body
+const port = 5000
 
-  if (!email || !password) {
-    return res.status(400).json({ success: false, message: "Email or Password is empty", data: req.body })
+const db_params = {
+  host: process.env.DB_HOST,
+  user: process.env.DB_USER,
+  password: process.env.DB_PASSWORD,
+  database: process.env.DATABASE
+}
+
+const start = async () => {
+  try {
+    await connectDB(db_params)
+    app.listen(port, console.log(`Server is listening on port ${port}...`)
+    )
+  } catch (error) {
+    console.log(error);
   }
-  res.status(201).json({ success: true, message: "Successfully Login", data: req.body })
-})
+}
+
+start()
 
 
-app.listen(5000, () => {
-  console.log("Server is listening on port 5000...");
-})
