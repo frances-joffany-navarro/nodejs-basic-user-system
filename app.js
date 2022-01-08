@@ -1,7 +1,7 @@
 const express = require("express")
 const app = express()
 const morgan = require("morgan")
-const connectDB = require('./services/connect')
+/* const connectDB = require('./services/connect') */
 require('dotenv').config()
 
 const users = require("./routes/users")
@@ -16,14 +16,7 @@ app.use('/api/v1/users', users)
 
 const port = 5000
 
-const db_params = {
-  host: process.env.DB_HOST,
-  user: process.env.DB_USER,
-  password: process.env.DB_PASSWORD,
-  database: process.env.DATABASE
-}
-
-const start = async () => {
+/* const start = async () => {
   try {
     await connectDB(db_params)
     app.listen(port, console.log(`Server is listening on port ${port}...`)
@@ -33,6 +26,7 @@ const start = async () => {
   }
 }
 
-start()
+start() */
+app.listen(port, console.log(`Server is listening on port ${port}...`))
 
 
