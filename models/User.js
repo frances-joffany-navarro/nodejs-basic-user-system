@@ -15,8 +15,7 @@ const allUsers = (result) => {
   })
 }
 const signIn = (payload) => {
-  return new Promise((resolve, reject) => {
-    console.log("Payload:", payload.email);
+  new Promise((resolve, reject) => {
     query = `SELECT * FROM user WHERE email="${payload.email}" && password="${payload.password}"`
 
     pool.query(query, (error, result) => {

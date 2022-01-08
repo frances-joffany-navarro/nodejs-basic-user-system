@@ -13,7 +13,7 @@ const getAllUsers = (req, res) => {
 
 }
 
-const userLogin = (req, res) => {
+const userLogin = async (req, res) => {
   const { email, password } = req.body
 
   if (!email || !password) {
@@ -21,7 +21,7 @@ const userLogin = (req, res) => {
   }
   // query if their is a same email and right password registered in the database
 /*   console.log(req.body); */
-  const result = signIn(req.body)
+  const result = await signIn(req.body)
 
   console.log("signin result", result);
   
