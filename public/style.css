@@ -1,12 +1,53 @@
 body {
-  background-image: url(./marek-piwnicki-zhtoz3osZVY-unsplash.jpg);
-  background-position: top right;
+  font-family: "Courier New", Courier, monospace;
 }
 
-main {
+header {
+  background: #6667ab;
+}
+
+main table {
+  margin-top: 56px;
+}
+
+.btn-view:hover {
+  color: #66b0e0;
+}
+.btn-edit:hover {
+  color: #cba42c;
+}
+
+.btn-delete:hover {
+  color: #84342d;
+}
+
+.btn {
+  color: #6667ab;
+}
+
+/* .btn:active {
+  color: #fff;
+  background-color: #6667ab;
+} */
+
+.btn-view:active {
+  color: #fff;
+  background-color: #66b0e0;
+}
+.btn-edit:active {
+  color: #fff;
+  background-color: #cba42c;
+}
+
+.btn-delete:active {
+  color: #fff;
+  background-color: #84342d;
+}
+
+/* main {
   max-width: 400px;
   margin: auto;
-  background-color: rgba(166, 208, 248, 0.5);
+  background-color: rgba(102, 103, 171, 1);
   padding: 20px;
   border-radius: 20px;
   margin-top: 125px;
@@ -14,4 +55,4 @@ main {
 
 footer {
   max-height: 100px;
-}
+} */
