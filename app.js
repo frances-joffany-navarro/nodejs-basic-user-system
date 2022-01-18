@@ -3,11 +3,13 @@ const app = express()
 /* const morgan = require("morgan") */
 
 app.engine('.html', require('ejs').__express);
-const connectDB = require('./services/connect')
+
 
 require('dotenv').config()
 
+const connectDB = require('./services/connect')
 const users = require("./routes/users")
+const { getAllUsers } = require('./controllers/users')
 
 /*  app.use(morgan('tiny')) */
 /* app.use(express.static(path.join(__dirname, 'public'))); */
@@ -19,11 +21,7 @@ app.use('/users', users)
 
 app.set('view engine', 'html');
 
-app.get('/', function (req, res) {
-  res.render('index', {
-    title: "EJS example"
-  });
-});
+app.get('/', getAllUsers);
 
 const start = () => {
   const port = 5000
@@ -43,5 +41,3 @@ const start = () => {
 }
 
 start()
-
-
