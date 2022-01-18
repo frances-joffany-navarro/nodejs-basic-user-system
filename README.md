@@ -6,8 +6,8 @@ This is a project is an exercise for Express (Nodejs). The idea of this project 
 ## Objective
 - understand / familiarize myself in using express(nodejs)
 - setup database
-- create a new user
-- authenticate user
+- add/edit/delete user
+- add login 
 
 ## Demo (Coming Soon)
 
@@ -16,7 +16,8 @@ This is a project is an exercise for Express (Nodejs). The idea of this project 
   ![Mobile](documentation/desktop-to-mobile.png)
 
 ## Language used
-- HTML 5
+- HTML 5 with EJS
+- CSS3
 - Bootstrap
 - Javascript
 - MySQL
