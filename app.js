@@ -1,32 +1,47 @@
 const express = require("express")
 const app = express()
-const morgan = require("morgan")
-/* const connectDB = require('./services/connect') */
+/* const morgan = require("morgan") */
+
+app.engine('.html', require('ejs').__express);
+const connectDB = require('./services/connect')
+
 require('dotenv').config()
 
 const users = require("./routes/users")
 
-app.use(morgan('tiny'))
-
+/*  app.use(morgan('tiny')) */
+/* app.use(express.static(path.join(__dirname, 'public'))); */
 app.use(express.static('./public'))
 app.use(express.urlencoded({ extended: false }))
 app.use(express.json())
 
-app.use('/api/v1/users', users)
+app.use('/users', users)
 
-const port = 5000
+app.set('view engine', 'html');
 
-/* const start = async () => {
-  try {
-    await connectDB(db_params)
-    app.listen(port, console.log(`Server is listening on port ${port}...`)
-    )
-  } catch (error) {
-    console.log(error);
-  }
+app.get('/', function (req, res) {
+  res.render('index', {
+    title: "EJS example"
+  });
+});
+
+const start = () => {
+  const port = 5000
+
+  //open the MySQL connection
+
+  const connection = connectDB()
+
+  connection.connect((err) => {
+    if (err) {
+      console.log('error connecting: ', err.stack);
+      return
+    }
+    console.log('connected as id ', connection.threadId);
+    app.listen(port, console.log(`Server is listening on port ${port}...`))
+  })
 }
 
-start() */
-app.listen(port, console.log(`Server is listening on port ${port}...`))
+start()
 
 
