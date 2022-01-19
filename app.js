@@ -9,7 +9,7 @@ require('dotenv').config()
 
 const connectDB = require('./services/connect')
 const users = require("./routes/users")
-const { getAllUsers } = require('./controllers/users')
+const { getUsersPerPage } = require('./controllers/users')
 
 /*  app.use(morgan('tiny')) */
 /* app.use(express.static(path.join(__dirname, 'public'))); */
@@ -21,7 +21,7 @@ app.use('/users', users)
 
 app.set('view engine', 'html');
 
-app.get('/', getAllUsers);
+app.get('/', getUsersPerPage);
 
 const start = () => {
   const port = 5000

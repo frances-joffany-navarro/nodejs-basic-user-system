@@ -2,9 +2,9 @@ const connectDB = require('../services/connect')
 const connection = connectDB()
 
 /* const { allUsers, signIn } = require('../models/User') */
-const getAllUsers = (req, res) => {
+const getUsersPerPage = (req, res) => {
 
-  const query = "SELECT * FROM user"
+  let query = "SELECT * FROM user"
 
   connection.query(query, (err, result) => {
     if (err) {
@@ -15,13 +15,36 @@ const getAllUsers = (req, res) => {
     if (!result) {
       res.status(500).json({ success: false, data: result })
     }
-    /* const r = res.json({  }) */
-    res.status(200).render('index', {
-      title: "EJS example", success: true, data: result
-    });
+
+    const page = req.query.page ? Number(req.query.page) : 1;
+    const resultPerPage = 10;
+    const totalResult = result.length;
+    const totalOfPages = Math.ceil(totalResult / resultPerPage)
+
+    if (page > totalOfPages) {
+      res.redirect(`/?page=${encodeURIComponent(totalOfPages)}`)
+    } else if (page < 1) {
+      res.redirect(`/?page=${encodeURIComponent('1')}`)
+    }
+
+    const startingLimit = (page - 1) * resultPerPage
+
+    query = `SELECT * FROM user LIMIT ${startingLimit}, ${resultPerPage}`
+
+    connection.query(query, (err, result) => {
+
+      if (err) {
+        console.log("Please check if your SQL syntax is correct", err);
+        return
+      }
+      console.log({
+        success: true, data: result, page, resultPerPage, totalResult
+      });
+      res.status(200).render('index', {
+        success: true, data: result, page, resultPerPage, totalResult
+      });
+    })
   })
-
-
 }
 
 const userLogin = (req, res) => {
@@ -55,5 +78,5 @@ const userLogin = (req, res) => {
 
 }
 
-module.exports = { getAllUsers, userLogin }
+module.exports = { getUsersPerPage, userLogin }
 
