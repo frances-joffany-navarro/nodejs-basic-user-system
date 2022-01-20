@@ -21,8 +21,18 @@ main table {
   color: #84342d;
 }
 
-.btn {
+.btn,
+.page-item{
   color: #6667ab;
+}
+
+.link-selected {
+  color: #fff;
+  background-color: #6667ab;
+}
+
+.hidden {
+  display: none;
 }
 
 /* .btn:active {
