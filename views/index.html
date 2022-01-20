@@ -41,38 +41,47 @@
           <%});}%>
       </tbody>
     </table>
-    <p>Total user: <%= totalResult %>
-    </p>
-    <nav aria-label="Page navigation example">
-      <ul class="pagination justify-content-center">
-        <% if (page!==1) { %>
-          <li class="page-item me-2 "><a class="page-link" href="<%= `/?page=1`%>"><i
-                class="fas fa-angle-double-left"></i> First Page</a></li>
-          <li class="page-item "><a class="page-link" href="<%= `/?page=${page-1}`%>"><i
-                class="fas fa-chevron-left"></i> Previous</a></li>
-          <%}%>
-            <% for (let index=startingLink; index <=endingLink; index++) { if (index===page) { %>
-              <li class="page-item"><a class="page-link link-selected" href="<%= `/?page=${index}`%>">
-                  <%= index%>
-                </a></li>
-              <% } else{ %>
+    <div class="row">
+      <div class="col-2">
+        <p>Total Result: <%= totalResult %>
+        </p>
+      </div>
+      <div class="col">
+        <nav aria-label="Page navigation example">
+          <ul class="pagination justify-content-end">
+            <% if (page!==1) { %>
+              <li class="page-item me-2 "><a class="page-link" href="<%= `/?page=1`%>"><i
+                    class="fas fa-angle-double-left"></i> First Page</a></li>
+              <li class="page-item "><a class="page-link" href="<%= `/?page=${page-1}`%>"><i
+                    class="fas fa-chevron-left"></i> Previous</a></li>
+              <%}%>
+                <% for (let index=startingLink; index <=endingLink; index++) { if (index===page) { %>
+                  <li class="page-item"><a class="page-link link-selected" href="<%= `/?page=${index}`%>">
+                      <%= index%>
+                    </a></li>
+                  <% } else{ %>
 
-                <li class="page-item"><a class="page-link" href="<%= `/?page=${index}`%>">
-                    <%= index%>
-                  </a></li>
+                    <li class="page-item"><a class="page-link" href="<%= `/?page=${index}`%>">
+                        <%= index%>
+                      </a></li>
 
-                <%}}%>
+                    <%}}%>
 
-                  <% if (page!==totalOfPages) { %>
-                    <li class="page-item"><a class="page-link" href="<%= `/?page=${page+1}`%>">Next <i
-                          class="fas fa-chevron-right"> </i></a></li>
-                    <li class="page-item ms-2"><a class="page-link" href="<%= `/?page=${totalOfPages}`%>">Last Page <i
-                          class="fas fa-angle-double-right"> </i>
-                      </a>
-                    </li>
-                    <%}%>
+                      <% if (page!==totalOfPages) { %>
+                        <li class="page-item"><a class="page-link" href="<%= `/?page=${page+1}`%>">Next <i
+                              class="fas fa-chevron-right"> </i></a></li>
+                        <li class="page-item ms-2"><a class="page-link" href="<%= `/?page=${totalOfPages}`%>">Last Page
+                            <i class="fas fa-angle-double-right"> </i>
+                          </a>
+                        </li>
+                        <%}%>
 
-      </ul>
-    </nav>
+          </ul>
+        </nav>
+      </div>
+    </div>
+
+
+
   </main>
   <%- include('footer.html') -%>

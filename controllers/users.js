@@ -39,14 +39,12 @@ const getUsersPerPage = (req, res) => {
       }
 
       // show only 10 links
-      const linksToShow = 10;
-      const numberOfLinksToShow = Math.floor(linksToShow / 2)
+      const linksToShow = 4;
+      const numberOfLinksToShow = Math.ceil(linksToShow / 2)
       /* const startingLink = page - numberOfLinksToShow < 1 ? 1 : page - numberOfLinksToShow
       const endingLink = (page + linksToShow) > totalOfPages ? totalOfPages : (page + numberOfLinksToShow) */
       const startingLink = (page - numberOfLinksToShow) < 1 ? 1 : (page + numberOfLinksToShow) > totalOfPages ? (totalOfPages - linksToShow) : (page - numberOfLinksToShow);
       const endingLink = (startingLink + linksToShow) > totalOfPages ? totalOfPages : (startingLink + linksToShow)
-
-
 
       res.status(200).render('index', {
         success: true, data: result, page, resultPerPage, totalResult, totalOfPages, startingLink, endingLink
@@ -83,6 +81,10 @@ const userLogin = (req, res) => {
     console.log("result found", value);
     return res.status(201).json({ success: true, message: "Successfully Login", data: req.body })
   })
+
+}
+// view one user depending on the id
+const viewUser = (req, res) => {
 
 }
 

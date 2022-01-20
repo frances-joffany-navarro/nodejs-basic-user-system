@@ -12,8 +12,8 @@ This is a project is an exercise for Express (Nodejs). The idea of this project 
 ## Demo (Coming Soon)
 
 ## Screenshoot
-- Sign in (Desktop to Mobile View)
-  ![Mobile](documentation/desktop-to-mobile.png)
+- Index Page
+  ![List of User Page](documentation/view-list-of-users.jpg)
 
 ## Language used
 - HTML 5 with EJS
