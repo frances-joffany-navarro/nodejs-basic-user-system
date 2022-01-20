@@ -43,7 +43,7 @@ const getUsersPerPage = (req, res) => {
       const numberOfLinksToShow = Math.floor(linksToShow / 2)
       /* const startingLink = page - numberOfLinksToShow < 1 ? 1 : page - numberOfLinksToShow
       const endingLink = (page + linksToShow) > totalOfPages ? totalOfPages : (page + numberOfLinksToShow) */
-      const startingLink = (page - numberOfLinksToShow) < 1 ? 1 : (page + linksToShow) > totalOfPages ? (totalOfPages - linksToShow) : (page - numberOfLinksToShow);
+      const startingLink = (page - numberOfLinksToShow) < 1 ? 1 : (page + numberOfLinksToShow) > totalOfPages ? (totalOfPages - linksToShow) : (page - numberOfLinksToShow);
       const endingLink = (startingLink + linksToShow) > totalOfPages ? totalOfPages : (startingLink + linksToShow)
 
 
