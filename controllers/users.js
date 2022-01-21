@@ -1,7 +1,6 @@
 const connectDB = require('../services/connect')
 const connection = connectDB()
 
-/* const { allUsers, signIn } = require('../models/User') */
 const getUsersPerPage = (req, res) => {
 
   let query = "SELECT * FROM user"
@@ -38,11 +37,8 @@ const getUsersPerPage = (req, res) => {
         return
       }
 
-      // show only 10 links
       const linksToShow = 4;
       const numberOfLinksToShow = Math.ceil(linksToShow / 2)
-      /* const startingLink = page - numberOfLinksToShow < 1 ? 1 : page - numberOfLinksToShow
-      const endingLink = (page + linksToShow) > totalOfPages ? totalOfPages : (page + numberOfLinksToShow) */
       const startingLink = (page - numberOfLinksToShow) < 1 ? 1 : (page + numberOfLinksToShow) > totalOfPages ? (totalOfPages - linksToShow) : (page - numberOfLinksToShow);
       const endingLink = (startingLink + linksToShow) > totalOfPages ? totalOfPages : (startingLink + linksToShow)
 
@@ -83,10 +79,10 @@ const userLogin = (req, res) => {
   })
 
 }
+
 // view one user depending on the id
 const viewUser = (req, res) => {
   const user_id = req.query.id
-  //query
   const query = `SELECT * FROM user WHERE id = ${user_id}`
 
   connection.query(query, (err, result) => {
