@@ -85,8 +85,18 @@ const userLogin = (req, res) => {
 }
 // view one user depending on the id
 const viewUser = (req, res) => {
+  const user_id = req.query.id
+  //query
+  const query = `SELECT * FROM user WHERE id = ${user_id}`
 
+  connection.query(query, (err, result) => {
+    if (err) {
+      console.log("Please check if your SQL syntax is correct", err);
+      return
+    }
+    res.render('view-user', { success: true, data: result })
+  });
 }
 
-module.exports = { getUsersPerPage, userLogin }
+module.exports = { getUsersPerPage, userLogin, viewUser }
 

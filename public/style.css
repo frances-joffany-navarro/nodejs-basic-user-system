@@ -5,9 +5,15 @@ body {
 header {
   background: #6667ab;
 }
+/* Navigation */
+.nav-item:hover {
+  background-color: #787ac7;
+  color: #fff;
+}
 
-main table {
-  margin-top: 56px;
+/* Index Page */
+.navbar {
+  margin-bottom: 56px;
 }
 
 .btn-view:hover {
@@ -22,7 +28,7 @@ main table {
 }
 
 .btn,
-.page-item{
+.page-item {
   color: #6667ab;
 }
 
@@ -40,7 +46,7 @@ main table {
   background-color: #6667ab;
 } */
 
-.btn-view:active {
+.btn-view:active, .btn-return {
   color: #fff;
   background-color: #66b0e0;
 }
@@ -54,15 +60,22 @@ main table {
   background-color: #84342d;
 }
 
-/* main {
-  max-width: 400px;
-  margin: auto;
-  background-color: rgba(102, 103, 171, 1);
-  padding: 20px;
-  border-radius: 20px;
-  margin-top: 125px;
+/* View User Page */
+
+.user-profile{
+  max-width: 50rem;
+  
 }
 
-footer {
-  max-height: 100px;
-} */
+.initials {
+  font-size: 70px;
+  text-align: center;
+  vertical-align: middle;
+  background-color: #6667ab;
+  color: #fff;
+  border-radius: 50%;
+  width: 150px;
+  height: 150px;
+  padding: 25px;
+  margin: auto 0 auto 0;
+}

@@ -1,5 +1,6 @@
 const express = require("express")
 const app = express()
+const path = require('path')
 /* const morgan = require("morgan") */
 
 app.engine('.html', require('ejs').__express);
@@ -13,15 +14,17 @@ const { getUsersPerPage } = require('./controllers/users')
 
 /*  app.use(morgan('tiny')) */
 /* app.use(express.static(path.join(__dirname, 'public'))); */
-app.use(express.static('./public'))
+app.use(express.static('public'))
 app.use(express.urlencoded({ extended: false }))
 app.use(express.json())
 
-app.use('/users', users)
+app.use('/api/v1/users', users)
 
 app.set('view engine', 'html');
 
-app.get('/', getUsersPerPage);
+app.get('/', (req, res) => {
+  res.redirect('/api/v1/users')
+});
 
 const start = () => {
   const port = 5000
