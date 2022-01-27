@@ -1,0 +1,49 @@
+<%- include('header.html') -%>
+  <main class="container">
+    <h2>Add New User</h2>
+    <div class="row my-5">
+      <form class="row g-3" method="post" action="/api/v1/users/add-user">
+        <div class="col-md-6">
+          <label for="inputFirstName" class="form-label">First Name</label>
+          <input type="text" class="form-control" id="inputFirstName" name="firstName">
+        </div>
+        <div class="col-md-6">
+          <label for="inputLastName" class="form-label">Last Name</label>
+          <input type="text" class="form-control" id="inputLastName" name="lastName">
+        </div>
+        <div class="col-md-6">
+          <label for="inputEmail" class="form-label">Email</label>
+          <input type="email" class="form-control" id="inputEmail" name="email">
+        </div>
+        <div class="col-md-6">
+          <label for="inputPassword" class="form-label">Password</label>
+          <input type="password" class="form-control" id="inputPassword" name="password">
+        </div>
+        <div class="col-4">
+          <label for="inputAddress" class="form-label">Address</label>
+          <input type="text" class="form-control" id="inputAddress" placeholder="1234 Main St" name="address">
+        </div>
+        <div class="col-2">
+          <label for="inputPostalCode" class="form-label">Postal Code</label>
+          <input type="text" class="form-control" id="inputPostalCode" name="postalCode">
+        </div>
+        <div class="col-md-3">
+          <label for="inputCity" class="form-label">City</label>
+          <input type="text" class="form-control" id="inputCity" name="city">
+        </div>
+        <div class="col-md-3">
+          <label for="inputCountry" class="form-label">Country</label>
+          <select id="inputCountry" class="form-select" name="country">
+            <option selected>Choose...</option>
+            <option>...</option>
+          </select>
+        </div>
+        <div class="col-12">
+          <button type="submit" class="btn btn-return">Sign in</button>
+        </div>
+      </form>
+    </div>
+    <!--  <a class="btn btn-return mt-4" href="/api/v1/users" role="button"><i class="fas fa-chevron-left"></i> Return</a> -->
+
+  </main>
+  <%- include('footer.html') -%>

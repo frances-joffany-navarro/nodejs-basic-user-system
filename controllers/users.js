@@ -1,5 +1,6 @@
 const connectDB = require('../services/connect')
 const connection = connectDB()
+const bcrypt = require('bcrypt');
 
 const getUsersPerPage = (req, res) => {
 
@@ -94,5 +95,26 @@ const viewUser = (req, res) => {
   });
 }
 
-module.exports = { getUsersPerPage, userLogin, viewUser }
+const addNewUser = async (req, res) => {
+  //get the payload
+  const payload = req.body
+  const saltRounds = 10
+
+  payload.password = await bcrypt.hash(payload.password, saltRounds)
+
+  console.log(payload);
+
+  res.render('add-user', { success: true, data: payload })
+
+}
+
+const editUser = (req, res) => {
+  res.send('Edit Section')
+}
+
+const deleteUser = (req, res) => {
+  res.send('delete Section')
+}
+
+module.exports = { getUsersPerPage, userLogin, viewUser, addNewUser, editUser, deleteUser }
 
